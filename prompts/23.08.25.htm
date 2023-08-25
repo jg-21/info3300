@@ -49,6 +49,11 @@
     // Key benefit over something like serialization is that it is standardized and very human-readable
 
     let obj = [{"name":"DDWA", "number":3300 },{"name": "Java", "number": 2110},{"name": "Python", "number": 1110}];
+    console.log(obj);
+    let jsonObj = JSON.stringify(obj); //Here is a JSON string for the object, json does not have undefined, only null
+    console.log(jsonObj);
+    console.log(typeof(jsonOnj));
+    console.log(JSON.parse(jsonObj));
     
     
 
@@ -59,6 +64,8 @@
     
     // Done incorrectly, the JSON parser can make you think you've fixed errors when you actually haven't
     // var fib = '[1; 2; 3; 5; 7; 12]';
+    let fib = '"[1; 2; 3; 5; 7; 12]"';
+    console.log(JSON.parse(fib));
     
   
   
@@ -68,10 +75,37 @@
     //    We have three different declarations, var, const, and let
     //    Var came earlier, const & let more recently
     //    (only use VAR if you really mean it!)
-    
-    
+    //block scope
+    let fruit = 'strawberry';
+    //global scope
+    var veg = 'celery';
+    //block scope
+    const legume = 'lentil';
+    console.log("----- Start here -----");
+    console.log(fruit);
+    console.log(veg);
+    console.log(legume);
+
+    if (fruit === "strawberry"){
+      let fruit = "apple";
+      let veg = "broccoli";
+      // shouldnt change, block scope
+      const legume = "red bean";
+
+      console.log("----- In if -----");
+      console.log(fruit);
+      console.log(veg);
+      console.log(legume);
+    }
+    console.log("----- After if -----");
+    console.log(fruit);
+    console.log(veg);
+    console.log(legume);
           
-    // Let's look at *hoisting* of variables
+    // Let's look at *hoisting* of variables, only works for functions and var
+    console.log(x); // undefined
+    var x = 5;
+    console.log(x);
     
     
     

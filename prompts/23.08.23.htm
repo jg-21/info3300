@@ -56,7 +56,33 @@
 
       // Let's explore some Javascript types!
       console.log("--- Checking out some types ---")
-      
+      console.log(typeof(1));
+      console.log(typeof(1.2));
+      console.log(typeof(Math.PI));
+
+      console.log(typeof("Hello."));
+      console.log(typeof('Hello.'));
+      console.log(typeof(`Hello.`));
+
+      console.log(typeof("你好"));
+
+      console.log(Math);
+      console.log(new Object());
+
+      console.log(typeof(null)); // None
+      console.log(typeof(undefined)); // None
+
+      console.log("lists and dicts");
+      let list = [1,2,3];
+      console.log(list);
+      console.log(typeof(list));
+      let dict = {"a": 1, "b": 2};
+      console.log(dict);
+      console.log(typeof(dict));
+
+      list["key"] = "this works";
+      console.log(list);
+      console.log(list.key);
       
       
       
@@ -81,7 +107,17 @@
       
       
       // Types can get a bit unexpected in JS
-      // console.log("--- Now exploring type coercion ---")
+      console.log("--- Now exploring type coercion ---")
+
+      console.log(3 + "Rzeszotarski");
+      console.log("1" + 2);
+      console.log(4 + true);
+      console.log("true" + false);
+      console.log(true + false);
+      console.log([1,2,3] + 2);
+
+      let color = "red";
+      document.getElementById("rectangle").setAttribute("fill", color);
       
       
       
@@ -91,14 +127,28 @@
       
       
       // Comparison weirdness
-      // console.log("--- Now trying some comparisons ---")
+      console.log("--- Now trying some comparisons ---")
+      console.log((true+1) === "2"); // this is true because one of the thing gets converted
+      console.log(0 == '0'); // true
+      console.log([] == 0); // true
+      console.log([1] == true); // true
+      console.log([0] == true); // false
+      console.log([[[]]] == 0); // true
       
-      
-      
+      // type testing
+      console.log(0 === '0'); // explicit comparsion, does not allow type coercion
+
+      cosnole.log(6 + null); // 6
+      cosnole.log(null === 0); // false
+      cosnole.log(null === undefined); // false
+      cosnole.log(NaN === NaN); // false, NaN cannot equal anything, can check using isNaN()
+      console.log([1,2,3] === [1,2,3]); // false because not the same object
       
 
       // Shortcircuiting of logical statements
-      // console.log("--- Shortcircuiting ---");
+      console.log("--- Shortcircuiting ---");
+      true || console.log("logged-or") || false;
+      true && console.log("logged-and") && false;
 
 
 
