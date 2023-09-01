@@ -47,7 +47,16 @@
     <br>
     
     <!--- SVG goes here! --->
-    
+    <svg height=500 width=500 style="border: 1px solid black; margin-bottom:50px;">
+      <!--- enter a drawing environment where p and div etc won't work-->
+      <rect x = 100 y = 50 height = 100 width = 120 fill = "red" stroke = "lime" stroke-width = 2 />
+      <circle cx = 100 cy = 250 r = 20 fill = "steelblue"/>
+      // a line from (25, 25) to (475, 475)
+      <line x1 = 25 x2 = 475 y1 = 25 y2 = 475 stroke = "purple" stroke-width = 3 />
+      // the drawing order matters, whatever is on bottom of the list is on the top
+      <rect x = 150 y = 70 height = 100 width = 120 style = "fill: deepskyblue; stroke: orange; stroke-width: 3" />
+      <text x = 0 y = 280 style="font: bold 20px sans-serif; dominant-baseline: hanging; " text-anchor = "start" /> Today is the best day ever, because we are drawing</text>
+    </svg>
     
 
 
@@ -81,7 +90,7 @@
       <path style="stroke:#ccc; stroke-width:1" d="M 180 0 V 200" />
 
       <!--- Now let's draw a polygon --->
-      
+      <path style="stroke: limegreen; stroke-width:3px; fill:plum" d = "M 10 10 H 50 V 30 L 30 60 Z" />
       
       
       

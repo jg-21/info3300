@@ -120,45 +120,66 @@
     
     
     // Functions:
-    
-  
+    function favoriteColor(){
+      return "red";
+    }
 
+    console.log(favoriteColor());
     
-    
+    let bestAnimal = () => {console.log("dog");}
     
     // * Brief foray into "destructuring"
     // Javascript can help to destructure objects and arrays during variable assignment
     //  (Credit for some examples goes to https://codeburst.io/es6-destructuring-the-complete-guide-7f842d08b98f -- check this out for lots of other capabilities and examples of destructuring)
     
     
-    // let color = [24, 50, 240];
+    let color = [24, 50, 240]; // if less than the required amount, javascript will put undefine in the middle
     // let r = color[0];
     // let g = color[1];
     // let b = color[2];
-    // console.log(r,g,b);
+    [r,b,g] = color;
+    console.log(r,g,b);
     
     
-    // let student = {name: "Herb Ertlinger", class: "INFO3300", age:21};
-    // 
-    // function printStudent( student ) {   // It also works when function parameters are declared!
-    //   console.log(student.name, student.class);
-    // }
-    // printStudent(student);
+    let student = {name: "Herb Ertlinger", class: "INFO3300", age:21};
+    
+    function printStudent( name, age ) {   // It also works when function parameters are declared!
+      console.log(name, age);
+    }
+    printStudent(student);
     
     
-    // let width = 50;
-    // let height = 100;
+    let width = 50;
+    let height = 100;
     // 
     // let t = width;
     // let width = height;
     // let height = t;
     // 
-    // console.log(width, height);
+    [height, width] = [width, height];
+    console.log(width, height);
 
     
     // * Now a bit of looping
-    // let list = ["red","green","blue","yellow"];
-    
+    let list = ["red","green","blue","yellow"];
+
+    for (let i = 0; i < list.length; i++){
+      console.log(list[i]);
+    }
+
+    // in === go through indices and NOT objects/contents
+    for (let index in list){
+      console.log(list[index]);
+    }
+
+    // of === contents of list
+    for (let obj of list){
+      console.log(obj)
+    }
+
+    list.forEach(function(d, i){
+      console.log("forEach", d, i);
+    });    
     
     
     
