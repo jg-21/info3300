@@ -64,6 +64,58 @@
     //  Instead, we'll make a thick vertical <line> for each bar. I don't recommend you do this outside of toy examples
     console.log(passengers);
     
+    let svg = d3.select("svg#all");
+    let width = svg.attr("width");
+    let height = svg.attr("height");
+    console.log(width, height);
+    
+    // let scale = d3.scaleLinear()
+    //               .domain([minData, maxData]) // customize the data (input)
+    //               .range([minPixel, maxPixel]); // customize the pixels (output)
+
+    let scale = d3.scaleLinear()
+                  .domain([0,10]) // customize the data (input)
+                  .range([100, 200]); // customize the pixels (output)
+    console.log(typeof(scale));
+    // data go in, pixel come out (customized for our canvas/drawing)
+    console.log(0, scale(0)); // 0 correspond to 100
+    console.log(4, scale(4)); // 4 is 4/10 of the way over
+    console.log(10, scale(10)); // 10 correspond to 200
+    
+    // linear interpolation, lerp
+    let ageScale = d3.scaleLinear()
+                     .domain([0, 80])
+                     .range([10, width - 10]); // padding
+    // console.log(0, ageScale(0));
+    // console.log(35.556, ageScale(35.556));
+    // console.log(80, ageScale(80));
+    let maxMortality = d3.max(passengers, d => { return Math.max(d.lived, d.died)});
+    let livedScale = d3.scaleLinear()
+                       .domain([0, maxMortality])
+                       .range([height/2.0, 10]); // set the minimum to 400 and max to 0, it will scale it either way
+    let diedScale = d3.scaleLinear()
+                       .domain([0, maxMortality])
+                       .range([height/2.0, height - 10]); // set the minimum to 400 and max to 0, it will scale it either way
+    
+    passengers.forEach( d => {
+      console.log(d);
+      svg.append("line")
+         .attr("x1", ageScale(d.age))
+         .attr("x2", ageScale(d.age))
+         .attr("y1", livedScale(0))
+         .attr("y2", livedScale(d.lived))
+         .attr("stroke", "#5555F0")
+         .attr("stroke-width", 10)
+
+      svg.append("line")
+         .attr("x1", ageScale(d.age))
+         .attr("x2", ageScale(d.age))
+         .attr("y1", diedScale(0))
+         .attr("y2", diedScale(d.died))
+         .attr("stroke", "#f05555")
+         .attr("stroke-width", 10)
+    });
+
     
     
     
